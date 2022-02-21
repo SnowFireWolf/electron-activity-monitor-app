@@ -4477,6 +4477,11 @@ electron-icon-builder@^2.0.1:
     icon-gen "^2.0.0"
     jimp "^0.16.1"
 
+electron-log@^4.4.6:
+  version "4.4.6"
+  resolved "https://registry.yarnpkg.com/electron-log/-/electron-log-4.4.6.tgz#e7824fc725370384f6edaaac0480c423e570dc69"
+  integrity sha512-nirYgRdY+F+vclr8ijdwy2vW03IzFpDHTaKNWu76dEN21Y76+smcES5knS7cgHUUB0qNLOi8vZO36taakjbSXA==
+
 electron-osx-sign@^0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/electron-osx-sign/-/electron-osx-sign-0.5.0.tgz#fc258c5e896859904bbe3d01da06902c04b51c3a"
@@ -9523,6 +9528,11 @@ svgo@^2.7.0:
     csso "^4.2.0"
     picocolors "^1.0.0"
     stable "^0.1.8"
+
+systeminformation@^5.11.4:
+  version "5.11.4"
+  resolved "https://registry.yarnpkg.com/systeminformation/-/systeminformation-5.11.4.tgz#3ed99533c67d0b4bd357871687e014f1c2a37194"
+  integrity sha512-rh7bjpjP5whUaTknim5CiGdAiKZcgWhmbmxjzBRXDWqUc/k67bz2OP+03DdcX6/SN/CDSAi/NeUwM5o2gjHJoA==
 
 table@^6.0.9:
   version "6.8.0"

@@ -1,7 +1,7 @@
 'use strict'
 
 import path from 'path'
-import { app, protocol, BrowserWindow } from 'electron'
+import { BrowserWindow, app, protocol, Menu, ipcMain } from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS3_DEVTOOLS } from 'electron-devtools-installer'
 import { setupTitlebar, attachTitlebarToWindow } from "custom-electron-titlebar/dist/main";
@@ -11,15 +11,25 @@ import { setupTitlebar, attachTitlebarToWindow } from "custom-electron-titlebar/
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
 
-
 // setup the titlebar main process
 setupTitlebar();
 
 
+
 // Scheme must be registered before the app is ready
 protocol.registerSchemesAsPrivileged([
-  { scheme: 'app', privileges: { secure: true, standard: true } }
+  {
+    scheme: 'app',
+    privileges: {
+      secure: true,
+      standard: true,
+      stream: true
+    }
+  }
 ])
+// protocol.registerSchemesAsPrivileged([
+//   { scheme: 'app', privileges: { secure: true, standard: true } }
+// ])
 
 async function createWindow() {
   if (!isDevelopment) {
@@ -28,19 +38,22 @@ async function createWindow() {
 
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 1200,
-    height: 900,
+    // width: 1200,
+    // height: 900,
     title: process.env.VUE_APP_NAME,
     icon: path.join(__static, 'icon.png'),
+    frame: false, // 隱藏原生標題欄位
     webPreferences: {
-
       // Use pluginOptions.nodeIntegration, leave this alone
       // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
       nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION,
       contextIsolation: !process.env.ELECTRON_NODE_INTEGRATION,
+      enableRemoteModule: true,
       preload: path.join(__dirname, 'preload.js'),
     },
   })
+
+  mainWindow.maximize();
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode
@@ -52,6 +65,7 @@ async function createWindow() {
     mainWindow.loadURL('app://./index.html')
   }
 
+  // custom title bar
   attachTitlebarToWindow(mainWindow);
 }
 
@@ -83,6 +97,11 @@ app.on('ready', async () => {
     }
   }
   createWindow()
+
+  ipcMain.handle('test-handle', async () => {
+    console.log("you did it!")
+    return "nice!"
+  })
 })
 
 // Exit cleanly on request from parent process in development mode.
