@@ -8,7 +8,7 @@ module.exports = defineConfig({
       preload: 'src/preload.js',
       builderOptions: {
         appId: 'com.sfirew.electron.task.monitor.app', // 認證的 appId
-        productName: 'Electron Task Monitor', // 專案名稱
+        productName: 'Electron Activity Monitor', // 專案名稱
         artifactName: '${name}.${ext}', // 檔案名稱樣板，有 ESLint 記得關掉
         copyright: 'Copyright©Kevin Zheng', // 版權
       },

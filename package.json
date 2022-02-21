@@ -1,7 +1,8 @@
 {
-  "name": "electron-task-monitor-app",
+  "name": "electron-activity-monitor-app",
   "version": "0.1.0",
   "private": true,
+  "author": "Kevin Zheng",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -22,13 +23,15 @@
     "custom-electron-titlebar": "^4.1.0",
     "electron-log": "^4.4.6",
     "systeminformation": "^5.11.4",
-    "vue": "^3.2.13"
+    "vue": "^3.2.13",
+    "vue-router": "^4.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
     "@babel/eslint-parser": "^7.12.16",
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-plugin-router": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
     "electron": "^13.0.0",
     "electron-devtools-installer": "^3.1.0",
@@ -56,6 +59,5 @@
     "last 2 versions",
     "not dead",
     "not ie 11"
-  ],
-  "author": "Kevin Zheng"
+  ]
 }
