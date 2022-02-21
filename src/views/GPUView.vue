@@ -14,11 +14,13 @@
 </template>
 
 <script>
+import mixinsUtils from '@/mixins/mixinsUtils';
+
 export default {
+  mixins: [mixinsUtils],
+
   data() {
     return {
-      GPUInfo: {},
-      getInterval: null,
       gpuChartOptions: {
         series: [
           {
@@ -51,6 +53,8 @@ export default {
           enabled: false,
         },
       },
+      GPUInfo: {},
+      getInterval: null,
     };
   },
 

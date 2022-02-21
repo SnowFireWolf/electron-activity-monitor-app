@@ -34,7 +34,7 @@ export default {
 
     async getCpuInformation() {
       const si = window.si;
-      const result = await si.cpu();
+      const result = await si.cpuCurrentSpeed();
       this.cpuInfo = result;
     },
   },

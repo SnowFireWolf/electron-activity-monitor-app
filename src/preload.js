@@ -5,8 +5,11 @@ import si from 'systeminformation'
 import { exec } from 'child_process'
 
 
+
 contextBridge.exposeInMainWorld('si', si)
 contextBridge.exposeInMainWorld('log', log)
+
+
 
 
 exec('NET SESSION', function(err,so,se) {

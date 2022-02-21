@@ -47,4 +47,34 @@ nav a.router-link-exact-active {
   color: #2369ff;
   font-weight: bold;
 }
+
+
+
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wrapper {
+  margin: auto;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
+
+@media screen and (min-width: 920px) {
+  .wrapper {
+    margin-left: 12%;
+    margin-right: 12%;
+  }
+}
 </style>
