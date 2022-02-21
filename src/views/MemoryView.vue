@@ -1,41 +1,42 @@
 <template>
-  <h1>CPU</h1>
+  <h1>RAM</h1>
+
   <div>
-    {{ cpuInfo }}
+    {{ memoryInfo }}
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HomeView',
-
   data() {
     return {
+      memoryInfo: {},
       getInterval: null,
-
-      cpuInfo: {},
-      //cpuInterval: null,
     }
   },
 
   async mounted() {
-    console.log('App mounted.');
     this.initInformation();
   },
 
   methods: {
     initInformation() {
-      this.getCpuInformation();
+      this.getInformation();
 
       this.getInterval = setInterval(() => {
-        this.getCpuInformation();
+        this.getInformation();
       }, 5000);
     },
 
-    async getCpuInformation() {
-      const si = window.si;
-      const result = await si.cpu();
-      this.cpuInfo = result;
+    async getInformation() {
+      try {
+        const si = window.si;
+        const result = await si.mem();
+        this.memoryInfo = result;
+        console.log(result)
+      } catch (error) {
+        console.error(error);
+      }
     },
   },
 
@@ -46,4 +47,7 @@ export default {
 </script>
 
 <style>
+table {
+  width: 100%;
+}
 </style>

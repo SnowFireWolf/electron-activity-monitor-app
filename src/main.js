@@ -1,5 +1,13 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+import useHighcharts from '@/plugins/useHighcharts'
 
-createApp(App).use(router).mount('#wrapper')
+
+
+const app = createApp(App)
+
+useHighcharts(app)
+
+app.use(router)
+app.mount('#wrapper')
