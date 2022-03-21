@@ -1,4 +1,4 @@
-# electron-bluetooth-controller
+# electron-activity-monitor-app
 
 ## Project setup
 ```
